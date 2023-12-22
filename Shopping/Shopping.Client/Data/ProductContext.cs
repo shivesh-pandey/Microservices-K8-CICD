@@ -27,7 +27,7 @@ namespace Shopping.Client.Data
 
         },
         new Product(){
-         Name="Google Home Display",
+         Name="Updated Google Home Display",
         Description="Helps in creating a smart home",
         ImageFile="product-5.png",
         Price=850.00M,
