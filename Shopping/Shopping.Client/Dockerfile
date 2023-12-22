@@ -3,10 +3,11 @@
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
 EXPOSE 80
-
+CMD["dir"]
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["Shopping/Shopping.Client/Shopping.Client.csproj", "Shopping/Shopping.Client/"]
+CMD["dir"]
 RUN dotnet restore "Shopping/Shopping.Client/Shopping.Client.csproj"
 COPY . .
 WORKDIR "/src/Shopping/Shopping.Client"
