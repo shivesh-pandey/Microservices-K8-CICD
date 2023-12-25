@@ -9,7 +9,6 @@ C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping\Shopping.Client\bin
 C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping\Shopping.Client\bin\Debug\net5.0\Shopping.Client.pdb
 C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping\Shopping.Client\bin\Debug\net5.0\Shopping.Client.Views.dll
 C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping\Shopping.Client\bin\Debug\net5.0\Shopping.Client.Views.pdb
-C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping\Shopping.Client\obj\Debug\net5.0\Shopping.Client.csproj.AssemblyReference.cache
 C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping\Shopping.Client\obj\Debug\net5.0\Shopping.Client.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping\Shopping.Client\obj\Debug\net5.0\Shopping.Client.AssemblyInfoInputs.cache
 C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping\Shopping.Client\obj\Debug\net5.0\Shopping.Client.AssemblyInfo.cs
