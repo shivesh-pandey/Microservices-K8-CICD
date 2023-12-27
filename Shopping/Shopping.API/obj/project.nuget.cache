@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "RC9zmwoxWKikGrOp0ITmMKqkLI4ocf2aG0bElRQgOyhQRHH0xRQ7XyLTKgOEFWzDxc3W2MPCKeJucugdnp++AA==",
+  "dgSpecHash": "O3aJS+E7Sq4DvR8YkwwzmUdk5m78Dw/R4qESk3sEQxt4NWlnI42DF0cFjAHHinrSizy1cvbg5k6giJ9owVB4og==",
   "success": true,
   "projectFilePath": "C:\\Users\\spandey\\source\\repos\\Microservices-K8-CICD\\Shopping\\Shopping.API\\Shopping.API.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\spandey\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\2.0.0\\microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512",
     "C:\\Users\\spandey\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\spandey\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\spandey\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512",
     "C:\\Users\\spandey\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\spandey\\.nuget\\packages\\mongodb.bson\\2.23.1\\mongodb.bson.2.23.1.nupkg.sha512",
     "C:\\Users\\spandey\\.nuget\\packages\\mongodb.driver\\2.23.1\\mongodb.driver.2.23.1.nupkg.sha512",

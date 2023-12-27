@@ -1,0 +1,61 @@
+name: dockercompose13740659105842038174
+services:
+  shopping.api:
+    build:
+      context: C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping
+      dockerfile: Shopping.API/Dockerfile
+    container_name: shoppingapi
+    depends_on:
+      shopping.db:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DatabaseSettings:ConnectionString: mongodb://shoppingdb:27017
+    image: shoppingapi
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "8000"
+      protocol: tcp
+  shopping.client:
+    build:
+      context: C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping
+      dockerfile: Shopping.Client/Dockerfile
+    depends_on:
+      shopping.api:
+        condition: service_started
+      shopping.db:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ShoppingAPIUrl: http://shoppingapi
+    image: shoppingclient
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "8001"
+      protocol: tcp
+  shopping.db:
+    container_name: shoppingdb
+    image: mongo
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 27017
+      published: "27017"
+      protocol: tcp
+    restart: always
+    volumes:
+    - type: bind
+      source: /site
+      target: /data/db
+      bind:
+        create_host_path: true
+networks:
+  default:
+    name: dockercompose13740659105842038174_default
