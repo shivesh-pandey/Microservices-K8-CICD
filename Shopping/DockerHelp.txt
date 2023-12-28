@@ -1,0 +1,28 @@
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> docker exec -it shopping-mongo /bin/bash
+root@5134e05878c8:/# mongosh
+Current Mongosh Log ID: 65876162e776f7aaff2f5bc9
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.1.1
+Using MongoDB:          7.0.4
+Using Mongosh:          2.1.1
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting
+   2023-12-23T22:31:33.670+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2023-12-23T22:31:34.888+00:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+   2023-12-23T22:31:34.889+00:00: /sys/kernel/mm/transparent_hugepage/enabled is 'always'. We suggest setting it to 'never'
+   2023-12-23T22:31:34.889+00:00: vm.max_map_count is too low
+------
+
+test> show dbs
+admin   40.00 KiB
+config  12.00 KiB
+local   72.00 KiB
+test> use CatalogDb
+switched to db CatalogDb
+CatalogDb> db.createCollection('Products')

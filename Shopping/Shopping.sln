@@ -9,6 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shopping.API", "Shopping.AP
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{241DAA6F-EE75-415C-A38C-9A730B077310}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F27B2E83-03EE-4276-B2C6-F3C51A3F7EAD}"
+	ProjectSection(SolutionItems) = preProject
+		Basic_Kubernetes.txt = Basic_Kubernetes.txt
+		Docker_Compose.txt = Docker_Compose.txt
+		DockerHelp.txt = DockerHelp.txt
+		Kubernetes-DeclarativeWay.txt = Kubernetes-DeclarativeWay.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

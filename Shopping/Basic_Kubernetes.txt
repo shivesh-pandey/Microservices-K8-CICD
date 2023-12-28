@@ -1,0 +1,163 @@
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl create deployment nginx-depl --image=nginx
+deployment.apps/nginx-depl created
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl get deployment
+NAME         READY   UP-TO-DATE   AVAILABLE   AGE
+nginx-depl   1/1     1            1           10s
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl get all
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/nginx-depl-c88549479-qwkrb   1/1     Running   0          18s
+
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   56m
+
+NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/nginx-depl   1/1     1            1           18s
+
+NAME                                   DESIRED   CURRENT   READY   AGE
+replicaset.apps/nginx-depl-c88549479   1         1         1       18s
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl get node
+NAME             STATUS   ROLES           AGE   VERSION
+docker-desktop   Ready    control-plane   56m   v1.25.2
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl edit deployment nginx-depl
+deployment.apps/nginx-depl edited
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl get pod
+NAME                         READY   STATUS    RESTARTS   AGE
+nginx-depl-c88549479-qwkrb   1/1     Running   0          5m4s
+nginx-depl-c88549479-xlz8g   1/1     Running   0          20s
+
+
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl create deployment mongo-depl --image=mongo
+deployment.apps/mongo-depl created
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl get pos
+error: the server doesn't have a resource type "pos"
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl get pod
+NAME                         READY   STATUS    RESTARTS   AGE
+mongo-depl-8fbdb868c-q54lj   1/1     Running   0          20s
+nginx-depl-c88549479-qwkrb   1/1     Running   0          11m
+nginx-depl-c88549479-xlz8g   1/1     Running   0          6m36s
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl describe pod mongo-depl-8fbdb868c-q54lj
+Name:             mongo-depl-8fbdb868c-q54lj
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             docker-desktop/192.168.65.4
+Start Time:       Wed, 27 Dec 2023 01:11:44 -0500
+Labels:           app=mongo-depl
+                  pod-template-hash=8fbdb868c
+Annotations:      <none>
+Status:           Running
+IP:               10.1.0.9
+IPs:
+  IP:           10.1.0.9
+Controlled By:  ReplicaSet/mongo-depl-8fbdb868c
+Containers:
+  mongo:
+    Container ID:   docker://d5b78601d102c8646235e7c919f110ea40a115077dbb6988ea27b31b051c0318
+    Image:          mongo
+    Image ID:       docker-pullable://mongo@sha256:d14158139a0bbc1741136d3eded7bef018a5980760a57f0014a1d4ac7677e4b1
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Wed, 27 Dec 2023 01:11:46 -0500
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-zjmp4 (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             True
+  ContainersReady   True
+  PodScheduled      True
+Volumes:
+  kube-api-access-zjmp4:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  5m2s  default-scheduler  Successfully assigned default/mongo-depl-8fbdb868c-q54lj to docker-desktop
+  Normal  Pulling    5m1s  kubelet            Pulling image "mongo"
+  Normal  Pulled     5m1s  kubelet            Successfully pulled image "mongo" in 752.0729ms
+  Normal  Created    5m    kubelet            Created container mongo
+  Normal  Started    5m    kubelet            Started container mongo
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping>
+
+# Initializing Mongo
+**********************************************************************
+** Visual Studio 2019 Developer PowerShell v16.11.10
+** Copyright (c) 2021 Microsoft Corporation
+**********************************************************************
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl get pod
+NAME                         READY   STATUS    RESTARTS   AGE
+mongo-depl-8fbdb868c-q54lj   1/1     Running   0          8m13s
+nginx-depl-c88549479-qwkrb   1/1     Running   0          19m
+nginx-depl-c88549479-xlz8g   1/1     Running   0          14m
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl exec mongo-depl-8fbdb868c-q54lj -it sh
+kubectl exec [POD] [COMMAND] is DEPRECATED and will be removed in a future version. Use kubectl exec [POD] -- [COMMAND] instead.
+# mongoshh
+sh: 1: mongoshh: not found
+# mongosh
+Current Mongosh Log ID: 658bc2f6d7e5596a1d602631
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.1.1
+Using MongoDB:          7.0.4
+Using Mongosh:          2.1.1
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting
+   2023-12-27T06:11:48.540+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2023-12-27T06:11:49.771+00:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+   2023-12-27T06:11:49.772+00:00: /sys/kernel/mm/transparent_hugepage/enabled is 'always'. We suggest setting it to 'never'
+   2023-12-27T06:11:49.772+00:00: vm.max_map_count is too low
+------
+
+test> show dbs
+admin   40.00 KiB
+config  12.00 KiB
+local   40.00 KiB
+
+
+# Deleting Deployment
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl get all
+pod/mongo-depl-8fbdb868c-q54lj   1/1     Running   0          14m
+pod/nginx-depl-c88549479-xlz8g   1/1     Running   0          20m
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   81m
+
+NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/mongo-depl   1/1     1            1           14m
+deployment.apps/nginx-depl   2/2     2            2           25m
+
+NAME                                   DESIRED   CURRENT   READY   AGE
+replicaset.apps/mongo-depl-8fbdb868c   1         1         1       14m
+replicaset.apps/nginx-depl-c88549479   2         2         2       25m
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl get deployment
+NAME         READY   UP-TO-DATE   AVAILABLE   AGE
+mongo-depl   1/1     1            1           14m
+nginx-depl   2/2     2            2           25m
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl delete deployment mongo-depl
+deployment.apps "mongo-depl" deleted
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl delete deploument nginx-depl
+error: the server doesn't have a resource type "deploument"
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl delete deployment nginx-depl
+deployment.apps "nginx-depl" deleted
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl get deployment
+No resources found in default namespace.
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> kubectl get all
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   82m
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping>

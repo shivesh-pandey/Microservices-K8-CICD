@@ -1,0 +1,89 @@
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
+time="2023-12-25T02:46:12-05:00" level=warning msg="The \"WEBAPP_STORAGE_HOME\" variable is not set. Defaulting to a blank string."
+[+] Running 10/12
+ - shopping.api Warning                                                                                                                                                                3.0s
+ - shopping.client Warning                                                                                                                                                             3.0s
+ - shopping.db Pulled                                                                                                                                                                 55.0s
+   - a48641193673 Pull complete                                                                                                                                                       25.7s
+   - bf55b1330fca Pull complete                                                                                                                                                       26.1s
+   - 92bc53a6d6fe Pull complete                                                                                                                                                       27.5s
+   - b429365d99b9 Pull complete                                                                                                                                                       28.0s
+   - 9c7bc1166582 Pull complete                                                                                                                                                       28.3s
+   - 261b4f40ad6b Pull complete                                                                                                                                                       28.5s
+   - 97d4b3f3d31c Pull complete                                                                                                                                                       28.7s
+   - d60dd40f133c Pull complete                                                                                                                                                       51.3s
+   - 3a13e71e4c17 Pull complete                                                                                                                                                       51.7s
+[+] Building 151.5s (28/28) FINISHED
+ => [shoppingapi internal] load build definition from Dockerfile                                                                                                                       0.1s
+ => => transferring dockerfile: 743B                                                                                                                                                   0.0s
+ => [shoppingclient internal] load build definition from Dockerfile                                                                                                                    0.2s
+ => => transferring dockerfile: 768B                                                                                                                                                   0.0s
+ => [shoppingapi internal] load .dockerignore                                                                                                                                          0.1s
+ => => transferring context: 382B                                                                                                                                                      0.0s
+ => [shoppingclient internal] load .dockerignore                                                                                                                                       0.2s
+ => => transferring context: 382B                                                                                                                                                      0.0s
+ => [shoppingclient internal] load metadata for mcr.microsoft.com/dotnet/sdk:5.0                                                                                                       0.8s
+ => [shoppingclient internal] load metadata for mcr.microsoft.com/dotnet/aspnet:5.0                                                                                                    0.9s
+ => [shoppingclient build 1/7] FROM mcr.microsoft.com/dotnet/sdk:5.0@sha256:3ff465d940de3e2c727794d92fd7bb649c498d4abd91bc9213ea7831ebf01f1e                                          31.0s
+ => => resolve mcr.microsoft.com/dotnet/sdk:5.0@sha256:3ff465d940de3e2c727794d92fd7bb649c498d4abd91bc9213ea7831ebf01f1e                                                                0.3s
+ => => sha256:3ff465d940de3e2c727794d92fd7bb649c498d4abd91bc9213ea7831ebf01f1e 2.17kB / 2.17kB                                                                                         0.0s
+ => => sha256:183b6254a002e2374497406e1c68782a36dc95acf036194d0b958e69c60be707 2.01kB / 2.01kB                                                                                         0.0s
+ => => sha256:9fec788bd1f9e8be900426262e95f9c68c6739951f5f5ab00b865bec1f73edb5 7.11kB / 7.11kB                                                                                         0.0s
+ => => sha256:5fdeb3a38fe88d68199c2d5414eb0afb42a0450988d0b519c184edccc3966b26 106.06MB / 106.06MB                                                                                    17.6s
+ => => sha256:85081c9db7883a130f7a48165f70df5778cbdae19a9a2eca1df126514409b7b1 27.56MB / 27.56MB                                                                                      10.2s
+ => => sha256:d395fb0767b4e145273887fd372e982029336ee92d5562c872dd1873536df5af 12.77MB / 12.77MB                                                                                       5.7s
+ => => extracting sha256:85081c9db7883a130f7a48165f70df5778cbdae19a9a2eca1df126514409b7b1                                                                                              5.0s
+ => => extracting sha256:5fdeb3a38fe88d68199c2d5414eb0afb42a0450988d0b519c184edccc3966b26                                                                                             10.5s
+ => => extracting sha256:d395fb0767b4e145273887fd372e982029336ee92d5562c872dd1873536df5af                                                                                              1.7s
+ => [shoppingclient base 1/2] FROM mcr.microsoft.com/dotnet/aspnet:5.0@sha256:1a7d811242f001673d5d25283b3af03da526de1ee8d3bb5aa295f480b7844d44                                         0.4s
+ => => resolve mcr.microsoft.com/dotnet/aspnet:5.0@sha256:1a7d811242f001673d5d25283b3af03da526de1ee8d3bb5aa295f480b7844d44                                                             0.2s
+ => [shoppingclient internal] load build context                                                                                                                                       1.8s
+ => => transferring context: 4.35MB                                                                                                                                                    1.5s
+ => [shoppingapi internal] load build context                                                                                                                                          1.5s
+ => => transferring context: 4.35MB                                                                                                                                                    1.3s
+ => [shoppingclient build 2/7] WORKDIR /src                                                                                                                                            2.2s
+ => [shoppingapi build 3/7] COPY [Shopping.API/Shopping.API.csproj, Shopping.API/]                                                                                                     0.2s
+ => [shoppingclient build 3/7] COPY [Shopping.Client/Shopping.Client.csproj, Shopping.Client/]                                                                                         0.1s
+ => [shoppingclient build 4/7] RUN dotnet restore "Shopping.Client/Shopping.Client.csproj"                                                                                            74.6s
+ => [shoppingapi build 4/7] RUN dotnet restore "Shopping.API/Shopping.API.csproj"                                                                                                     78.0s
+ => [shoppingclient build 6/7] WORKDIR /src/Shopping.Client                                                                                                                            1.0s
+ => [shoppingclient build 7/7] RUN dotnet build "Shopping.Client.csproj" -c Release -o /app/build                                                                                     28.2s
+ => [shoppingapi build 5/7] COPY . .                                                                                                                                                   1.3s
+ => [shoppingapi build 6/7] WORKDIR /src/Shopping.API                                                                                                                                  1.9s
+ => [shoppingapi publish 1/1] RUN dotnet publish "Shopping.API.csproj" -c Release -o /app/publish                                                                                     10.8s
+ => [shoppingclient publish 1/1] RUN dotnet publish "Shopping.Client.csproj" -c Release -o /app/publish                                                                               10.4s
+ => CACHED [shoppingclient base 2/2] WORKDIR /app                                                                                                                                      0.0s
+ => CACHED [shoppingclient final 1/2] WORKDIR /app                                                                                                                                     0.0s
+ => [shoppingclient] exporting to image                                                                                                                                                1.2s
+ => => exporting layers                                                                                                                                                                0.3s
+ => => writing image sha256:5fb46f582f1d7cd057c3b4b0d27580f5add7db7678e88500e86ea6ffd47c4219                                                                                           0.0s
+ => => naming to docker.io/library/shoppingapi                                                                                                                                         0.0s
+ => => writing image sha256:c04117db8544795f16075e98c482de9ee976315fed1a6545bf14d7fe6f4dfd21                                                                                           0.0s
+ => => naming to docker.io/library/shoppingclient                                                                                                                                      0.0s
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+[+] Running 4/4
+ - Network shopping_default  Created                                                                                                                                                   0.1s
+ - Container shoppingdb      Started                                                                                                                                                   1.2s
+ - Container shoppingapi     Started                                                                                                                                                   2.1s
+ - Container shoppingclient  Started                                                                                                                                                   3.7s
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> docker images
+REPOSITORY       TAG       IMAGE ID       CREATED          SIZE
+shoppingclient   latest    c04117db8544   30 seconds ago   231MB
+shoppingapi      latest    5fb46f582f1d   34 seconds ago   242MB
+mongo            latest    2e123a0ccb4b   5 days ago       757MB
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> docker ps
+CONTAINER ID   IMAGE            COMMAND                  CREATED          STATUS          PORTS                      NAMES
+1b626a2340ae   shoppingclient   "dotnet Shopping.Cli…"   34 seconds ago   Up 30 seconds   0.0.0.0:8001->80/tcp       shoppingclient
+b44975657164   shoppingapi      "dotnet Shopping.API…"   34 seconds ago   Up 32 seconds   0.0.0.0:8000->80/tcp       shoppingapi
+4a35dc593972   mongo            "docker-entrypoint.s…"   34 seconds ago   Up 33 seconds   0.0.0.0:27017->27017/tcp   shoppingdb
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> docker-compose -f docker-compose.yml -f docker-compose.override.yml down
+time="2023-12-25T02:56:03-05:00" level=warning msg="The \"WEBAPP_STORAGE_HOME\" variable is not set. Defaulting to a blank string."
+[+] Running 4/4
+ - Container shoppingclient  Removed                                                                                                                                                   0.5s
+ - Container shoppingapi     Removed                                                                                                                                                   0.5s
+ - Container shoppingdb      Removed                                                                                                                                                   2.3s
+ - Network shopping_default  Removed                                                                                                                                                   0.2s
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping>

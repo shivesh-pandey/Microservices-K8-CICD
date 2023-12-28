@@ -3,7 +3,6 @@ version: '3.4'
 services:
   shopping.api:
     image: shoppingapi:dev
-    container_name: Shopping.API
     build:
       target: base
       labels:
@@ -31,7 +30,6 @@ services:
     tty: true
   shopping.client:
     image: shoppingclient:dev
-    container_name: Shopping.Client
     build:
       target: base
       labels:
