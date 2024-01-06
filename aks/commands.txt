@@ -1,0 +1,17 @@
+To get list of AcrLoginServers
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
+
+-- Command for tagging images in support of AcrLoginServers
+docker tag shoppingclient:latest shiveshshoppingacr.azurecr.io/shoppingclient:v1
+
+--- Command to see what images are available in Acr
+az acr repository list --name shiveshshoppingacr --output table
+
+--Command to see tags for a particular image/repository
+az acr repository show-tags --name shiveshshoppingacr --repository shoppingclient --output table
+
+--command for creating aks cluster
+PS C:\Users\spandey\source\repos\Microservices-K8-CICD\Shopping> az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys --attach-acr shiveshshoppingacr
+
+--Command to get aks version
+az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion --output table
