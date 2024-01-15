@@ -68,7 +68,7 @@ namespace Shopping.API.Data
             },
             new Product()
             {
-                Name = "Samsung S6",
+                Name = "Samsung S6 Watch",
                 Description = "New Phone release in 2022",
                 ImageFile = "product-3.png",
                 Price = 850.00M,
